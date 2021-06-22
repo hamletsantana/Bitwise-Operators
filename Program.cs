@@ -16,6 +16,8 @@ namespace Numeric_Functions
             Console.WriteLine(Positivo(numero));
             Console.WriteLine("Es negativo?");
             Console.WriteLine(Negativo(numero));
+            Console.WriteLine("Valor Absoluto");
+            Console.WriteLine(Absoluto(numero));
         }
 
         static bool Impar(int num)
@@ -47,7 +49,7 @@ namespace Numeric_Functions
 
         static bool Positivo(int num)
         {
-            if ((num & 0x000000001) != 0)
+            if ((num & 0x80000000) != 0)
             {
                 return false;
             }
@@ -58,7 +60,7 @@ namespace Numeric_Functions
         }
         static bool Negativo(int num)
         {
-            if ((num & 0x000000001) != 0)
+            if ((num & 0x80000000) != 0)
             {
                 return true;
             }
@@ -67,6 +69,10 @@ namespace Numeric_Functions
                 return false;
             }
         }
-
+        static int Absoluto (int num)
+        {
+            int x = num >> 31;
+            return (num^x) - x;
+        }
     }
 }
