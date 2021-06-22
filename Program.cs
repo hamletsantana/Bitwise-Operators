@@ -12,6 +12,10 @@ namespace Numeric_Functions
             Console.WriteLine(Impar(numero));
             Console.WriteLine("Es par? ");
             Console.WriteLine(Par(numero));
+            Console.WriteLine("Es positivo?");
+            Console.WriteLine(Positivo(numero));
+            Console.WriteLine("Es negativo?");
+            Console.WriteLine(Negativo(numero));
         }
 
         static bool Impar(int num)
@@ -40,5 +44,29 @@ namespace Numeric_Functions
             }
             
         }
+
+        static bool Positivo(int num)
+        {
+            if ((num & 0x000000001) != 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        static bool Negativo(int num)
+        {
+            if ((num & 0x000000001) != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
